@@ -1,0 +1,77 @@
+# ───────── Dependencies ─────────
+node_modules/
+*/node_modules/
+**/node_modules/
+
+# ───────── Build output ─────────
+dist/
+build/
+*/dist/
+*/build/
+**/dist/
+**/build/
+*.tsbuildinfo
+
+# ───────── Hardhat artifacts ─────────
+contracts/cache/
+contracts/artifacts/
+contracts/typechain-types/
+
+# ───────── Backend ─────────
+Backend/data/
+Backend/dist/
+Backend/sirius.db
+Backend/sirius.db-journal
+Backend/prisma/sirius.db
+Backend/prisma/sirius.db-journal
+
+# ───────── Env files (keep .env.example, ignore real .env) ─────────
+.env
+.env.local
+.env.*.local
+*/.env
+**/.env
+!.env.example
+!*/.env.example
+!**/.env.example
+
+# ───────── Vite / Frontend ─────────
+Frontend/.vite/
+Frontend/dist/
+Frontend/node_modules/
+
+# ───────── Editor / IDE ─────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ───────── OS junk ─────────
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ───────── Logs ─────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ───────── Temp / scratch ─────────
+/tmp/
+*.tmp
+*.bak
+
+# ───────── Reference codebases (kept locally for porting only) ─────────
+sirius_v1/
+Sirius2.0/
+
+# ───────── Local deployment artifacts (regenerable) ─────────
+deployments/localhost.json
+
+# ───────── Claude / AI assistant artifacts ─────────
+.claude/
+CLAUDE_CODE_BOOTSTRAP.md
