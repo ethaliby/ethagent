@@ -1,0 +1,26 @@
+{
+  "name": "sirius-contracts",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Sirius for Agents — Solidity contracts (AgentINFT) on 0G",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "node": "hardhat node",
+    "deploy:local": "hardhat run scripts/deploy.ts --network hardhat",
+    "deploy:zerog": "hardhat run scripts/deploy.ts --network zerog"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@openzeppelin/contracts": "^5.0.2",
+    "hardhat": "^2.22.10",
+    "typescript": "^5.4.5",
+    "ts-node": "^10.9.2",
+    "@types/node": "^20.12.7",
+    "@types/mocha": "^10.0.6",
+    "@types/chai": "^4.3.16",
+    "chai": "^4.4.1",
+    "ethers": "^6.13.2",
+    "dotenv": "^16.4.5"
+  }
+}
