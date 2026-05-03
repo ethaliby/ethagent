@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vipnagorgialla";
+  src: url("/fonts/Vipnagorgialla.otf") format("opentype");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  background: #0b0b0b;
+  color: #e8e8e8;
+  font-family: "Satoshi", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: none;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Subtle pixel/grain background — fixed, very low opacity */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");
+  opacity: 0.025;
+  mix-blend-mode: overlay;
+}
+
+/* Selection */
+::selection {
+  background: #ff4d00;
+  color: #0b0b0b;
+}
+
+@layer components {
+  /* ---- Buttons ---- */
+  .btn {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-2.5 text-sm font-medium transition duration-200 select-none cursor-pointer disabled:cursor-not-allowed disabled:opacity-40 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#FF4D00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0B0B];
+    font-family: "Satoshi", sans-serif;
+    letter-spacing: 0.02em;
+  }
+  .btn-primary {
+    @apply bg-fg text-bg hover:bg-white;
+  }
+  .btn-accent {
+    @apply text-bg hover:opacity-90;
+    background: #ff4d00;
+  }
+  .btn-ghost {
+    @apply border border-line2 text-fg hover:border-muted hover:bg-surface;
+  }
+  .btn-outline {
+    @apply border border-fg text-fg hover:bg-fg hover:text-bg;
+  }
+
+  /* ---- Cards / surfaces ---- */
+  .card {
+    @apply rounded-2xl border border-line bg-surface/60 backdrop-blur-md p-6 md:p-8 transition-colors;
+  }
+  .card-hover {
+    @apply hover:border-muted2/60;
+  }
+
+  /* ---- Forms ---- */
+  .label {
+    @apply block text-[10px] uppercase tracking-widest2 text-muted mb-2;
+    font-family: "JetBrains Mono", monospace;
+  }
+  .input {
+    @apply w-full bg-bg border border-line2 rounded-md px-4 py-2.5 text-fg placeholder-muted2 transition focus:border-fg focus:outline-none;
+    font-family: "Satoshi", sans-serif;
+  }
+  .input-mono {
+    font-family: "JetBrains Mono", monospace;
+    @apply text-sm;
+  }
+
+  /* ---- Mono / pill ---- */
+  .mono {
+    font-family: "JetBrains Mono", monospace;
+    @apply text-xs text-muted;
+  }
+  .pill {
+    @apply inline-flex items-center gap-1.5 rounded-md border border-line2 bg-surface px-2 py-1 cursor-copy hover:border-muted hover:text-fg transition;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    color: #888;
+  }
+
+  /* ---- Headings ---- */
+  .display {
+    font-family: "Vipnagorgialla", sans-serif;
+    letter-spacing: 0.05em;
+  }
+  .eyebrow {
+    @apply text-[10px] uppercase tracking-widest2 text-muted2;
+    font-family: "JetBrains Mono", monospace;
+  }
+  .accent-text {
+    color: #ff4d00;
+  }
+
+  /* ---- Section divider ---- */
+  .hr-line {
+    @apply h-px w-full bg-line;
+  }
+
+  /* ---- Number marker (used everywhere — Sirius 2.0 signature) ---- */
+  .num {
+    font-family: "Vipnagorgialla", sans-serif;
+    @apply text-muted2 tracking-wider2;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* RainbowKit ConnectButton override */
+[data-rk] button {
+  font-family: "Satoshi", sans-serif !important;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
